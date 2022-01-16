@@ -3,14 +3,19 @@ import PropTypes from 'prop-types';
 import './CreditCardInformationTemplate.scss';
 import { CreditCardInformationFormOrganism, InteractiveCardOrganism } from '../../Organisms';
 
-const CreditCardInformationTemplate = (props) => (
-  <div className="CreditCardInformationTemplate" data-testid="CreditCardInformationTemplate">
-    <InteractiveCardOrganism></InteractiveCardOrganism>
-    <CreditCardInformationFormOrganism
-      {...props.fields}
-    ></CreditCardInformationFormOrganism>
-  </div>
-);
+const CreditCardInformationTemplate = (props) => {
+  
+  return (
+    <div className="CreditCardInformationTemplate" data-testid="CreditCardInformationTemplate">
+      <InteractiveCardOrganism
+        {...props.creditCardInformation}
+      ></InteractiveCardOrganism>
+      <CreditCardInformationFormOrganism
+        {...props.fields}
+      ></CreditCardInformationFormOrganism>
+    </div>
+  );
+}
 
 CreditCardInformationTemplate.propTypes = {};
 

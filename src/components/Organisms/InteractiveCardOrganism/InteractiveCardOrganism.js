@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CreditCardBackgroundAtom } from '../../Atoms';
+import { CreditCardBackgroundAtom, ImageAtom } from '../../Atoms';
 import './InteractiveCardOrganism.scss';
+import { InteractiveCreditCardNumber } from '../../Molecules';
 
 
-const InteractiveCardOrganism = () => (
-  <div className="InteractiveCardOrganism" data-testid="InteractiveCardOrganism">
-    <CreditCardBackgroundAtom>
-      InteractiveCardOrganism Component
-    </CreditCardBackgroundAtom>
-  </div>
-
-);
+const InteractiveCardOrganism = ({creditCardType, creditCardNumber}) => {
+  
+  const creditCardTypePath = `/img/${creditCardType}.png`;
+  console.log(creditCardNumber);
+  return (
+    <div className="InteractiveCardOrganism" data-testid="InteractiveCardOrganism">
+      <CreditCardBackgroundAtom>
+        <div className='InteractiveCardContent'>
+          <ImageAtom src='/img/chip.png'/>
+          <ImageAtom src={creditCardTypePath}/>
+          <InteractiveCreditCardNumber {...creditCardNumber}/>
+        </div>
+      </CreditCardBackgroundAtom>
+    </div>
+  
+  );
+}
 
 InteractiveCardOrganism.propTypes = {};
 
