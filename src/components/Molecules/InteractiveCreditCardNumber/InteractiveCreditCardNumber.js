@@ -4,16 +4,16 @@ import './InteractiveCreditCardNumber.scss';
 import { splitString } from '../../../core/helpers';
 import { InteractiveCreditCardCharacter } from '../../Atoms';
 import LabelAtom from '../../Atoms/LabelAtom/LabelAtom';
-
+import { interactiveCreditCardMask } from '../../../core/helpers/masks/InteractiveCreditCardMask';
 const InteractiveCreditCardNumber = ({value, label}) => {
   
   const[characters, setCharacters] = useState(splitString(value));
-  
+
   useEffect(()=>{
     if(value === ''){
       setCharacters(splitString('#### **** **** ####'));
     } else{
-      setCharacters(splitString(value));
+      setCharacters(splitString(interactiveCreditCardMask(value)));
     }
   },[value]);
 

@@ -6,7 +6,7 @@ describe('maskCreditCardNumber mask test', () => {
   });
 
   test('must return correctly masked credit card', () => {
-    expect(interactiveCreditCardMask(1111111111111111)).toEqual('1111 **** **** 1111');
+    expect(interactiveCreditCardMask('1111 1111 1111 1111')).toEqual('1111 **** **** 1111');
   });
 
 });
