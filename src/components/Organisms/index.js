@@ -1,5 +1,6 @@
-import CreditCardInformationFormOrganism from '../Organisms/CreditCardInformationFormOrganism/CreditCardInformationFormOrganism.lazy';
-
+import CreditCardInformationFormOrganism from './CreditCardInformationFormOrganism/CreditCardInformationFormOrganism.lazy';
+import InteractiveCardOrganism from './InteractiveCardOrganism/InteractiveCardOrganism.lazy';
 export {
-  CreditCardInformationFormOrganism
+  CreditCardInformationFormOrganism,
+  InteractiveCardOrganism
 }

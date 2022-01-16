@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./CreditCardInformationFormOrganism.scss";
 import { InputGroupMolecule, SelectGroupMolecule } from "../../Molecules";
-import { CardAtom } from '../../Atoms';
+import { CardAtom, ButtonAtom } from '../../Atoms';
 
 const CreditCardInformationFormOrganism = ({
   creditCardNumber,
@@ -10,6 +10,7 @@ const CreditCardInformationFormOrganism = ({
   creditCardExpirationDateMonth,
   creditCardExpirationDateYear,
   creditCardCvv,
+  formSubmit = () => {}
 }) => (
   <div
     className="CreditCardInformationFormOrganism"
@@ -24,6 +25,7 @@ const CreditCardInformationFormOrganism = ({
       creditCardExpirationDateYear={creditCardExpirationDateYear}
     ></SelectGroupMolecule>
     <InputGroupMolecule input={creditCardCvv}></InputGroupMolecule>
+    <ButtonAtom onClick={formSubmit}>Submit</ButtonAtom>
   </CardAtom>
     
   </div>
