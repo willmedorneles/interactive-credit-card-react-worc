@@ -19,7 +19,7 @@ const CreditCardInformationPage = () => {
     <section className='CreditCardPage'>
       <CreditCardInformationTemplate
         fields={{creditCardNumber, creditCardHolder, creditCardExpirationDateMonth, creditCardExpirationDateYear, creditCardCvv}}
-        creditCardInformation={{creditCardType, creditCardNumber}}
+        creditCardInformation={{creditCardType, creditCardNumber, creditCardHolder}}
       ></CreditCardInformationTemplate>
     </section>
   );

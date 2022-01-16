@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CreditCardBackgroundAtom, ImageAtom } from '../../Atoms';
 import './InteractiveCardOrganism.scss';
-import { InteractiveCreditCardNumber } from '../../Molecules';
+import { InteractiveCreditCardNumber, InteractiveCreditCardHolder } from '../../Molecules';
 
 
-const InteractiveCardOrganism = ({creditCardType, creditCardNumber}) => {
+const InteractiveCardOrganism = ({creditCardType, creditCardNumber, creditCardHolder}) => {
   
   const creditCardTypePath = `/img/${creditCardType}.png`;
   console.log(creditCardNumber);
@@ -16,6 +16,7 @@ const InteractiveCardOrganism = ({creditCardType, creditCardNumber}) => {
           <ImageAtom src='/img/chip.png'/>
           <ImageAtom src={creditCardTypePath}/>
           <InteractiveCreditCardNumber {...creditCardNumber}/>
+          <InteractiveCreditCardHolder {...creditCardHolder}/>
         </div>
       </CreditCardBackgroundAtom>
     </div>

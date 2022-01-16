@@ -8,7 +8,7 @@ import LabelAtom from '../../Atoms/LabelAtom/LabelAtom';
 const InteractiveCreditCardNumber = ({value, label}) => {
   
   const[characters, setCharacters] = useState(splitString(value));
-  console.log(value);
+  
   useEffect(()=>{
     if(value === ''){
       setCharacters(splitString('#### **** **** ####'));
