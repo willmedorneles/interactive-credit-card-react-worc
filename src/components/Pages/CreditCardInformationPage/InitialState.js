@@ -1,3 +1,5 @@
+import { yearsBetweenDates, maskCreditCardNumber } from "../../../core/helpers";
+
 const initialState = {
   creditCardNumber: {
     label: "Card Number",
@@ -5,7 +7,7 @@ const initialState = {
     value: "",
     error: "",
     validator: (value) => true,
-    mask: (value) => value,
+    mask: maskCreditCardNumber,
   },
   creditCardHolder: {
     label: "Card Holder",
@@ -18,7 +20,7 @@ const initialState = {
 
   creditCardExpirationDateMonth: {
     label: "Expiration Date",
-    name: "expirationDate",
+    name: "Month",
     value: `Month`,
     options: [1,2,3,4,5,6,7,8,9,10,11,12],
     error: "",
@@ -27,9 +29,9 @@ const initialState = {
   },
   creditCardExpirationDateYear: {
     label: "Expiration Date",
-    name: "expirationDate",
+    name: "Year",
     value: `Year`,
-    options: [1,2,3,4,5,6,7,8,9,10,11,12],
+    options: yearsBetweenDates('January 2022', 'January 2030'),
     error: "",
     validator: (value) => true,
     mask: (value) => value,

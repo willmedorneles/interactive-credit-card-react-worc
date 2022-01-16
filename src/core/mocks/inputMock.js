@@ -1,10 +1,10 @@
 
 const mockInput = {
   value: '',
-  name: '', 
+  name: 'test', 
   label: '', 
   error: '',
-  type: '',
+  type: 'text',
   required: true,
   options: {},
   onChange: () => {},

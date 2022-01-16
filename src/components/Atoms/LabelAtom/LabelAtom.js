@@ -7,7 +7,7 @@ function LabelAtom({htmlFor, children}) {
 
   return (
     <label className="atom-label" htmlFor={htmlFor}>
-      { children}
+      { children }
     </label>
   );
 }
