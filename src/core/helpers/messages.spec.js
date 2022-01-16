@@ -1,6 +1,6 @@
 import { getMessage } from './messages';
 
-describe('UserAuthentication componetent test', () => {
+describe('getMessage componetent test', () => {
 
   test('must return default message', () => {
     const message = getMessage();
