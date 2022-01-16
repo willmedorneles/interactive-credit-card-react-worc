@@ -35,7 +35,8 @@ const CreditCardInformationPage = () => {
           creditCardExpirationDate:{
             creditCardExpirationDateMonth,
             creditCardExpirationDateYear,
-          }
+          },
+          creditCardCvv
         }}
       ></CreditCardInformationTemplate>
     </section>

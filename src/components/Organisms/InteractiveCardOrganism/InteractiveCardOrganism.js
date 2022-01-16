@@ -6,13 +6,15 @@ import {
   InteractiveCreditCardNumber,
   InteractiveCreditCardHolder,
   InteractiveCreditCardExpiration,
+  InteractiveCreditCardCvv,
 } from "../../Molecules";
 
 const InteractiveCardOrganism = ({
   creditCardType,
   creditCardNumber,
   creditCardHolder,
-  creditCardExpirationDate
+  creditCardExpirationDate,
+  creditCardCvv
 }) => {
   const creditCardTypePath = `/img/${creditCardType}.png`;
   return (
@@ -27,6 +29,7 @@ const InteractiveCardOrganism = ({
           <InteractiveCreditCardNumber {...creditCardNumber} />
           <InteractiveCreditCardHolder {...creditCardHolder} />
           <InteractiveCreditCardExpiration {...creditCardExpirationDate}/>
+          <InteractiveCreditCardCvv {...creditCardCvv} />
         </div>
       </CreditCardBackgroundAtom>
     </div>
