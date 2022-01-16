@@ -4,7 +4,6 @@ import './CreditCardInformationTemplate.scss';
 import { CreditCardInformationFormOrganism, InteractiveCardOrganism } from '../../Organisms';
 
 const CreditCardInformationTemplate = (props) => {
-  
   return (
     <div className="CreditCardInformationTemplate" data-testid="CreditCardInformationTemplate">
       <InteractiveCardOrganism
