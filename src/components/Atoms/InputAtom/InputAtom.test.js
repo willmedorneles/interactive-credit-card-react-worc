@@ -1,14 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import InputAtom from './InputAtom';
+import { shallow, configure } from 'enzyme';
+import InputAtom from './InputAtom'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-describe('<InputAtom />', () => {
-  test('it should mount', () => {
-    render(<InputAtom />);
-    
-    const inputAtom = screen.getByTestId('InputAtom');
+configure({adapter: new Adapter()});
 
-    expect(inputAtom).toBeInTheDocument();
-  });
-});
+describe('InputAtom test', () => {
+    test('should render the component', () =>{
+        const wrapper = shallow(<InputAtom/>);
+        expect(wrapper.find('div').exists()).toBe(true);
+    })
+})

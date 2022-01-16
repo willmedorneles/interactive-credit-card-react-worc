@@ -7,10 +7,19 @@ import { CreditCardInformationTemplate } from '../../Templates';
 
 const CreditCardInformationPage = () => {
   const creditCardNumber = useFormField(initialState.creditCardNumber);
+  const creditCardHolder = useFormField(initialState.creditCardHolder);
+  const creditCardExpirationDateMonth = useFormField(initialState.creditCardExpirationDateMonth);
+  const creditCardExpirationDateYear = useFormField(initialState.creditCardExpirationDateYear);
+  const creditCardCvv = useFormField(initialState.creditCardCvv);
+
+
+
   return (
-    <CreditCardInformationTemplate
-      fields={{creditCardNumber}}
-    ></CreditCardInformationTemplate>
+    <section className='CreditCardPage'>
+      <CreditCardInformationTemplate
+        fields={{creditCardNumber, creditCardHolder, creditCardExpirationDateMonth, creditCardExpirationDateYear, creditCardCvv}}
+      ></CreditCardInformationTemplate>
+    </section>
   );
 }
 

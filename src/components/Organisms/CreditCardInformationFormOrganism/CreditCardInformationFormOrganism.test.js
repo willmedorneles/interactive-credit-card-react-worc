@@ -1,14 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import CreditCardInformationFormOrganism from './CreditCardInformationFormOrganism';
+import { shallow, configure } from 'enzyme';
+import CreditCardInformationFormOrganism from './CreditCardInformationFormOrganism'
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
-describe('<CreditCardInformationFormOrganism />', () => {
-  test('it should mount', () => {
-    render(<CreditCardInformationFormOrganism />);
-    
-    const creditCardInformationFormOrganism = screen.getByTestId('CreditCardInformationFormOrganism');
+configure({adapter: new Adapter()});
 
-    expect(creditCardInformationFormOrganism).toBeInTheDocument();
-  });
-});
+describe('Credit CreditCardInformationFormOrganism Page test', () => {
+    test('should render the component', () =>{
+        const wrapper = shallow(<CreditCardInformationFormOrganism/>);
+        expect(wrapper.find('div').exists()).toBe(true);
+    })
+})

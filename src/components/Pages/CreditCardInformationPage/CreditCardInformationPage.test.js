@@ -1,14 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import CreditCardInformationPage from './CreditCardInformationPage';
+import { shallow, configure } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import CreditCardInformationPage from './CreditCardInformationPage'
 
-describe('<CreditCardInformationPage />', () => {
-  test('it should mount', () => {
-    render(<CreditCardInformationPage />);
-    
-    const creditCardInformationPage = screen.getByTestId('CreditCardInformationPage');
+configure({adapter: new Adapter()});
 
-    expect(creditCardInformationPage).toBeInTheDocument();
-  });
-});
+describe('Credit Card Page test', () => {
+    test('should render the component', () =>{
+        const wrapper = shallow(<CreditCardInformationPage/>);
+        expect(wrapper.find('section').exists()).toBe(true);
+    })
+})
