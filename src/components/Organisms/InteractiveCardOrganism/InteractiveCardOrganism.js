@@ -22,16 +22,24 @@ const InteractiveCardOrganism = ({
       className="InteractiveCardOrganism"
       data-testid="InteractiveCardOrganism"
     >
-      <CreditCardBackgroundAtom>
-        <div className="InteractiveCardContent">
-          <ImageAtom src="/img/chip.png" />
-          <ImageAtom src={creditCardTypePath} />
-          <InteractiveCreditCardNumber {...creditCardNumber} />
-          <InteractiveCreditCardHolder {...creditCardHolder} />
-          <InteractiveCreditCardExpiration {...creditCardExpirationDate}/>
-          <InteractiveCreditCardCvv {...creditCardCvv} />
+      <div className="card-item">
+        <div className="card-item__side -front">
+          <div className="InteractiveCardContent">
+            <ImageAtom src="/img/chip.png" />
+            <ImageAtom src={creditCardTypePath} />
+            <CreditCardBackgroundAtom/>
+            <InteractiveCreditCardNumber {...creditCardNumber} />
+            <InteractiveCreditCardHolder {...creditCardHolder} />
+            <InteractiveCreditCardExpiration {...creditCardExpirationDate}/>
+          </div>
         </div>
-      </CreditCardBackgroundAtom>
+        <div className="card-item__side -back">
+          <div className="InteractiveCardContent">
+            <InteractiveCreditCardCvv {...creditCardCvv} />
+            <ImageAtom src={creditCardTypePath} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

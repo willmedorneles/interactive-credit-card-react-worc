@@ -5,6 +5,7 @@ import { yearsBetweenDates } from './yearsBetweenDates';
 import { splitString } from './splitString';
 import { stripWhiteSpaces } from './stripWhiteSpaces';
 import { getLastTwoCharacters } from './getLastTwoCharacters';
+import { maskCreditCardCvvMask } from './masks/CreditCardCvvMask';
 export {
   isNotEmptyString,
   getMessage,
@@ -12,5 +13,6 @@ export {
   yearsBetweenDates,
   splitString,
   stripWhiteSpaces,
-  getLastTwoCharacters
+  getLastTwoCharacters,
+  maskCreditCardCvvMask
 }

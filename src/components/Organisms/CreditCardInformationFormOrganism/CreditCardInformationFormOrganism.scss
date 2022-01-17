@@ -1,1 +1,7 @@
-.CreditCardInformationFormOrganism {}
+.CreditCardInformationFormOrganism {
+  display: flex;
+  .atom-card{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

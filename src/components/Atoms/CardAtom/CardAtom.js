@@ -6,7 +6,7 @@ function CardAtom({children,}) {
 
 
   const cssClasses = classNames({
-    'molecule-card': true
+    'atom-card': true
   });
 
   return (
