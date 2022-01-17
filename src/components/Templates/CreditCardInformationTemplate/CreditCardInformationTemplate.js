@@ -9,9 +9,11 @@ const CreditCardInformationTemplate = (props) => {
       <div className='template-content'>
         <InteractiveCardOrganism
           {...props.creditCardInformation}
+          showBack = {props.showBackCard}
         ></InteractiveCardOrganism>
         <CreditCardInformationFormOrganism
           {...props.fields}
+          setShowBackCard = {props.setShowBackCard}
         ></CreditCardInformationFormOrganism>
       </div>
     </div>

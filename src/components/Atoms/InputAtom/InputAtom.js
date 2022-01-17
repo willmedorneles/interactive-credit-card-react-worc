@@ -7,17 +7,17 @@ const InputAtom = ({
   type,
   value,
   onChange,
-  onBlur,
+  onBlurAction,
   required = true,
-  disabled
+  disabled,
+  onFocus = () => {}
 }) => {
   const [isDirty, setIsDirty] = useState(false);
 
   const handleBlur = (event) => {
     setIsDirty(true);
-
-    if( onBlur ) {
-      onBlur(event);
+    if( onBlurAction ) {
+      onBlurAction(event);
     }
   };
 
@@ -29,6 +29,7 @@ const InputAtom = ({
         type={type}
         onChange={onChange}
         onBlur={handleBlur}
+        onFocus={onFocus.bind(this)}
         required={required}
         disabled={disabled}>
       </input>

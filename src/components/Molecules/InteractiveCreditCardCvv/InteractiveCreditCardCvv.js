@@ -12,9 +12,9 @@ const InteractiveCreditCardCvv = ({value, label}) => {
   },[value]);
 
   return (
-    <div className="InteractiveCreditCardNumber" data-testid="InteractiveCreditCardNumber">
+    <div className="InteractiveCreditCardCvv" data-testid="InteractiveCreditCardNumber">
       <LabelAtom>{label}</LabelAtom>
-      <div>
+      <div className='cvv-stripe'>
         {
           characters.map((characterValue, index) => {
             return <InteractiveCreditCardCharacter key={index}>{characterValue}</InteractiveCreditCardCharacter>

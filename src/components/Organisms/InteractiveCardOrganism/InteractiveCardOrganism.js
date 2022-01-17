@@ -8,21 +8,29 @@ import {
   InteractiveCreditCardExpiration,
   InteractiveCreditCardCvv,
 } from "../../Molecules";
+import classNames from 'classnames';
 
 const InteractiveCardOrganism = ({
   creditCardType,
   creditCardNumber,
   creditCardHolder,
   creditCardExpirationDate,
-  creditCardCvv
+  creditCardCvv,
+  showBack = false,
 }) => {
   const creditCardTypePath = `/img/${creditCardType}.png`;
+
+  const cssClassesCard = classNames({
+    'card-item': true,
+    '-active': showBack
+  });
+
   return (
     <div
       className="InteractiveCardOrganism"
       data-testid="InteractiveCardOrganism"
     >
-      <div className="card-item">
+      <div className={cssClassesCard}>
         <div className="card-item__side -front">
           <div className="InteractiveCardContent">
             <CreditCardBackgroundAtom/>
@@ -38,6 +46,8 @@ const InteractiveCardOrganism = ({
         </div>
         <div className="card-item__side -back">
           <div className="InteractiveCardContent">
+            <CreditCardBackgroundAtom/>
+            <div className="card-magnetic-stripe"></div>
             <InteractiveCreditCardCvv {...creditCardCvv} />
             <ImageAtom classes={{'card-type': true}} src={creditCardTypePath} />
           </div>

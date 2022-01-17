@@ -17,7 +17,7 @@ const CreditCardInformationPage = () => {
   const creditCardCvv = useFormField(initialState.creditCardCvv);
 
   const [creditCardType, setcreditCardType] = useState("visa");
-
+  const [showBackCard, setShowBackCard] = useState(false)
   return (
     <section className="CreditCardPage">
       <CreditCardInformationTemplate
@@ -38,6 +38,8 @@ const CreditCardInformationPage = () => {
           },
           creditCardCvv
         }}
+        showBackCard={showBackCard}
+        setShowBackCard={setShowBackCard}
       ></CreditCardInformationTemplate>
     </section>
   );

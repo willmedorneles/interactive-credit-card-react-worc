@@ -10,34 +10,38 @@ const CreditCardInformationFormOrganism = ({
   creditCardExpirationDateMonth,
   creditCardExpirationDateYear,
   creditCardCvv,
-  formSubmit = () => {}
-}) => (
-  <div
-    className="CreditCardInformationFormOrganism"
-    data-testid="CreditCardInformationFormOrganism"
-  >
-  <CardAtom>
-    <div className="cardNumberWrapper">
-      <InputGroupMolecule input={creditCardNumber}></InputGroupMolecule>
+  formSubmit = () => {},
+  setShowBackCard
+}) => {
+
+  return (
+    <div
+      className="CreditCardInformationFormOrganism"
+      data-testid="CreditCardInformationFormOrganism"
+    >
+    <CardAtom>
+      <div className="cardNumberWrapper">
+        <InputGroupMolecule input={creditCardNumber}></InputGroupMolecule>
+      </div>
+      <div className="cardHolderWrapper">
+        <InputGroupMolecule input={creditCardHolder}></InputGroupMolecule>
+      </div>
+      <div className="cardExpirationWrapper">
+        <SelectGroupMolecule
+          label='Expiration Date'
+          creditCardExpirationDateMonth={creditCardExpirationDateMonth}
+          creditCardExpirationDateYear={creditCardExpirationDateYear}
+        ></SelectGroupMolecule>
+      </div>
+      <div className="cardCvvWrapper">
+        <InputGroupMolecule onFocus={() => {setShowBackCard(true)}} onBlur={() => {setShowBackCard(false)}} input={creditCardCvv}></InputGroupMolecule>
+      </div>
+      <ButtonAtom onClick={formSubmit}>Submit</ButtonAtom>
+    </CardAtom>
+      
     </div>
-    <div className="cardHolderWrapper">
-      <InputGroupMolecule input={creditCardHolder}></InputGroupMolecule>
-    </div>
-    <div className="cardExpirationWrapper">
-      <SelectGroupMolecule
-        label='Expiration Date'
-        creditCardExpirationDateMonth={creditCardExpirationDateMonth}
-        creditCardExpirationDateYear={creditCardExpirationDateYear}
-      ></SelectGroupMolecule>
-    </div>
-    <div className="cardCvvWrapper">
-      <InputGroupMolecule input={creditCardCvv}></InputGroupMolecule>
-    </div>
-    <ButtonAtom onClick={formSubmit}>Submit</ButtonAtom>
-  </CardAtom>
-    
-  </div>
-);
+  );
+}
 
 CreditCardInformationFormOrganism.propTypes = {};
 
