@@ -13,7 +13,7 @@ const CreditCardBackgroundAtom = ({ children }) => {
   },[]);
   
   return (
-    <div class="card-item__cover">
+    <div className="card-item__cover">
       <ImageAtom src={bgPath} class="card-item__bg"/>
     </div>
   );

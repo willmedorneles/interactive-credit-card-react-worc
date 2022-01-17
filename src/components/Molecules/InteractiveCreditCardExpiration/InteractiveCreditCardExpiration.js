@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import './InteractiveCreditCardExpiration.scss';
 import { LabelAtom, InteractiveCreditCardCharacter } from '../../Atoms';
 import { getLastTwoCharacters } from '../../../core/helpers';
+import {
+  TransitionGroup,
+  CSSTransition
+} from 'react-transition-group';
 
 const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditCardExpirationDateYear}) => {
   const[charactersMonth, setCharactersMonth] = useState(creditCardExpirationDateMonth.value);
@@ -28,12 +32,31 @@ const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditC
   return (
     <div className="InteractiveCreditCardExpiration" data-testid="InteractiveCreditCardExpiration">
       <LabelAtom frontLabel={true}>Expiration Date</LabelAtom>
-      <div className='expiration-date'>
-        <InteractiveCreditCardCharacter>{charactersMonth}</InteractiveCreditCardCharacter>
+      <div>
+        <TransitionGroup
+            className="slide-fade-up number-wrapper"
+            component="div"
+        >
+          <CSSTransition
+          classNames="slide-fade-up"
+          timeout={250}
+          >
+            <InteractiveCreditCardCharacter>{charactersMonth}</InteractiveCreditCardCharacter>
+          </CSSTransition>
+        </TransitionGroup>
         /
-        <InteractiveCreditCardCharacter>{charactersYear}</InteractiveCreditCardCharacter>
+        <TransitionGroup
+            className="slide-fade-up number-wrapper"
+            component="div"
+        >
+          <CSSTransition
+          classNames="slide-fade-up"
+          timeout={250}
+          >
+            <InteractiveCreditCardCharacter>{charactersYear}</InteractiveCreditCardCharacter>
+          </CSSTransition>
+        </TransitionGroup>
       </div>
-
     </div>
   );
 }

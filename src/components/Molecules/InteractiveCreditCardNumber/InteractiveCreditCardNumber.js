@@ -5,6 +5,11 @@ import { splitString } from '../../../core/helpers';
 import { InteractiveCreditCardCharacter } from '../../Atoms';
 import LabelAtom from '../../Atoms/LabelAtom/LabelAtom';
 import { interactiveCreditCardMask } from '../../../core/helpers/masks/InteractiveCreditCardMask';
+import {
+  TransitionGroup,
+  CSSTransition
+} from 'react-transition-group';
+
 const InteractiveCreditCardNumber = ({value, label}) => {
   
   const[characters, setCharacters] = useState(splitString(value));
@@ -19,14 +24,24 @@ const InteractiveCreditCardNumber = ({value, label}) => {
 
   return (
     <div className="InteractiveCreditCardNumber" data-testid="InteractiveCreditCardNumber">
-      <div class="number-wrapper">
+      <TransitionGroup
+          className="slide-fade-up number-wrapper"
+          component="div"
+      >
         {
           characters.map((characterValue, index) => {
-            return <InteractiveCreditCardCharacter key={index}>{characterValue}</InteractiveCreditCardCharacter>
+            return (
+              <CSSTransition
+              classNames="slide-fade-up"
+              timeout={250}
+              key={index}
+              >
+                <InteractiveCreditCardCharacter >{characterValue}</InteractiveCreditCardCharacter>
+              </CSSTransition>
+            )
           })
         }
-      </div>
-      
+      </TransitionGroup>
     </div>
   );
 }
