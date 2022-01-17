@@ -10,32 +10,43 @@ const InputAtom = ({
   onBlurAction,
   required = true,
   disabled,
-  onFocus = () => {}
+  onFocus = () => {},
+  setCurrentFocusElement,
+  elementRef,
 }) => {
   const [isDirty, setIsDirty] = useState(false);
 
   const handleBlur = (event) => {
     setIsDirty(true);
-    if( onBlurAction ) {
+    if (onBlurAction) {
       onBlurAction(event);
     }
+    if (setCurrentFocusElement) setCurrentFocusElement(null);
+  };
+
+  const handleFocus = (event) => {
+    if (onFocus) onFocus(event);
+    if (setCurrentFocusElement) setCurrentFocusElement(elementRef);
+    console.log("setCurrentFocusElement Atom", setCurrentFocusElement);
+    console.log("elementRef", elementRef);
+
   };
 
   return (
     <div className="InputAtom" data-testid="InputAtom">
-      <input 
+      <input
         id={name}
         value={value}
         type={type}
         onChange={onChange}
         onBlur={handleBlur}
-        onFocus={onFocus.bind(this)}
+        onFocus={handleFocus}
         required={required}
-        disabled={disabled}>
-      </input>
+        disabled={disabled}
+      ></input>
     </div>
   );
-}
+};
 
 InputAtom.propTypes = {};
 

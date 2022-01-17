@@ -10,10 +10,12 @@ const CreditCardInformationFormOrganism = ({
   creditCardExpirationDateMonth,
   creditCardExpirationDateYear,
   creditCardCvv,
+  cardElementRef,
+  setCurrentFocusedElement,
   formSubmit = () => {},
   setShowBackCard
 }) => {
-
+  console.log('CreditCardInformationFormOrganism',setCurrentFocusedElement);
   return (
     <div
       className="CreditCardInformationFormOrganism"
@@ -21,13 +23,15 @@ const CreditCardInformationFormOrganism = ({
     >
     <CardAtom>
       <div className="cardNumberWrapper">
-        <InputGroupMolecule input={creditCardNumber}></InputGroupMolecule>
+        <InputGroupMolecule elementRef={cardElementRef.number} setCurrentFocusedElement={setCurrentFocusedElement} input={creditCardNumber}></InputGroupMolecule>
       </div>
       <div className="cardHolderWrapper">
-        <InputGroupMolecule input={creditCardHolder}></InputGroupMolecule>
+        <InputGroupMolecule elementRef={cardElementRef.holder} setCurrentFocusedElement={setCurrentFocusedElement} input={creditCardHolder}></InputGroupMolecule>
       </div>
       <div className="cardExpirationWrapper">
         <SelectGroupMolecule
+          elementRef={cardElementRef.expiration}
+          setCurrentFocusedElement={setCurrentFocusedElement}
           label='Expiration Date'
           creditCardExpirationDateMonth={creditCardExpirationDateMonth}
           creditCardExpirationDateYear={creditCardExpirationDateYear}

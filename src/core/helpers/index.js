@@ -6,6 +6,8 @@ import { splitString } from './splitString';
 import { stripWhiteSpaces } from './stripWhiteSpaces';
 import { getLastTwoCharacters } from './getLastTwoCharacters';
 import { maskCreditCardCvvMask } from './masks/CreditCardCvvMask';
+import { getCardType } from './getCardType';
+import { isValidCreditCardNumber } from './validators/isValidCreditCardNumber';
 export {
   isNotEmptyString,
   getMessage,
@@ -14,5 +16,7 @@ export {
   splitString,
   stripWhiteSpaces,
   getLastTwoCharacters,
-  maskCreditCardCvvMask
+  maskCreditCardCvvMask,
+  getCardType,
+  isValidCreditCardNumber
 }

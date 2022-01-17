@@ -8,7 +8,7 @@ import {
   CSSTransition
 } from 'react-transition-group';
 
-const InteractiveCreditCardHolder = ({value, label}) => {
+const InteractiveCreditCardHolder = ({value, label, elementRef}) => {
 
   const[characters, setCharacters] = useState(splitString(value));
   
@@ -21,7 +21,7 @@ const InteractiveCreditCardHolder = ({value, label}) => {
   },[value]);
 
   return (
-    <div className="InteractiveCreditCardHolder" data-testid="InteractiveCreditCardHolder">
+    <div className="InteractiveCreditCardHolder" data-testid="InteractiveCreditCardHolder" ref={elementRef} name="holder">
       <LabelAtom frontLabel={true}>{label}</LabelAtom>
       <TransitionGroup
           className="slide-fade-up holder-name"

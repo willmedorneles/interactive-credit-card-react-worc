@@ -7,7 +7,7 @@ const InputGroupMolecule = (props) => {
   return (
     <div className="InputGroupMolecule" data-testid="InputGroupMolecule">
       <LabelAtom>{props.input.label}</LabelAtom>
-      <InputAtom onFocus={props.onFocus} onBlurAction={props.onBlur} {...props.input}></InputAtom>
+      <InputAtom elementRef={props.elementRef} setCurrentFocusElement={props.setCurrentFocusedElement} onBlurAction={props.onBlur} {...props.input}></InputAtom>
     </div>
   );
 }

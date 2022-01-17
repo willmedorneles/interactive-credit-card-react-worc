@@ -30,7 +30,7 @@ const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditC
   },[creditCardExpirationDateYear.value]);
 
   return (
-    <div className="InteractiveCreditCardExpiration" data-testid="InteractiveCreditCardExpiration">
+    <div className="InteractiveCreditCardExpiration" data-testid="InteractiveCreditCardExpiration" name="expiration">
       <LabelAtom frontLabel={true}>Expiration Date</LabelAtom>
       <div>
         <TransitionGroup

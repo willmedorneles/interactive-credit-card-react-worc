@@ -9,7 +9,7 @@ import {
   CSSTransition
 } from 'react-transition-group';
 
-const InteractiveCreditCardCvv = ({value, label}) => {
+const InteractiveCreditCardCvv = ({value, label, elementRef}) => {
   const[characters, setCharacters] = useState(splitString(value));
 
   useEffect(()=>{
@@ -17,7 +17,7 @@ const InteractiveCreditCardCvv = ({value, label}) => {
   },[value]);
 
   return (
-    <div className="InteractiveCreditCardCvv" data-testid="InteractiveCreditCardNumber">
+    <div className="InteractiveCreditCardCvv" data-testid="InteractiveCreditCardNumber" ref={elementRef}>
       <LabelAtom>{label}</LabelAtom>
       <TransitionGroup
             className="zoom-in-out cvv-stripe"

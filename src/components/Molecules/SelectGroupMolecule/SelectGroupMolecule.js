@@ -7,10 +7,10 @@ const SelectGroupMolecule = (props) => (
   <div className="SelectGroupMolecule" data-testid="SelectGroupMolecule">
     <LabelAtom frontLabel={true}>{props.label}</LabelAtom>
     <div className='select-wrapper'>
-      <SelectAtom {...props.creditCardExpirationDateMonth}></SelectAtom>
+      <SelectAtom onFocus={props.setCurrentFocusedElement} ref={props.elementRef} {...props.creditCardExpirationDateMonth}></SelectAtom>
     </div>
     <div className='select-wrapper'>
-      <SelectAtom {...props.creditCardExpirationDateYear}></SelectAtom>
+      <SelectAtom onFocus={props.setCurrentFocusedElement} ref={props.elementRef} {...props.creditCardExpirationDateYear}></SelectAtom>
     </div>
   </div>
 );

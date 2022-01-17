@@ -4,7 +4,7 @@ function maskCreditCardNumber(inputValue){
   
   if( !inputValue ) return '';
 
-  return VMasker.toPattern(inputValue, '9999 9999 9999 9999');
+  return VMasker.toPattern(inputValue, '9999 9999 9999 9999 999');
 
 }
 

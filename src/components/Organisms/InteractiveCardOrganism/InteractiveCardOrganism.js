@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useEffect, useState, setStyle } from "react";
 import PropTypes from "prop-types";
 import { CreditCardBackgroundAtom, ImageAtom } from "../../Atoms";
 import "./InteractiveCardOrganism.scss";
+import { getRandomInt } from "../../../core/helpers/getRandomInt";
 import {
   InteractiveCreditCardNumber,
   InteractiveCreditCardHolder,
   InteractiveCreditCardExpiration,
   InteractiveCreditCardCvv,
 } from "../../Molecules";
-import classNames from 'classnames';
+import classNames from "classnames";
 
 const InteractiveCardOrganism = ({
   creditCardType,
@@ -17,13 +18,42 @@ const InteractiveCardOrganism = ({
   creditCardExpirationDate,
   creditCardCvv,
   showBack = false,
+  currentFocusedElement,
+  cardElementRef,
 }) => {
   const creditCardTypePath = `/img/${creditCardType}.png`;
 
   const cssClassesCard = classNames({
-    'card-item': true,
-    '-active': showBack
+    "card-item": true,
+    "-active": showBack,
   });
+
+  const [bgPath, setBgPath] = useState("/img/1.png");
+  const [style, setStyle] = useState(null);
+
+  const outlineElementStyle = (element) => {
+    return element
+      ? {
+          width: `${element.offsetWidth}px`,
+          height: `${element.offsetHeight}px`,
+          transform: `translateX(${element.offsetLeft}px) translateY(${element.offsetTop}px)`,
+        }
+      : null;
+  };
+
+  useEffect(() => {
+    console.log('currentFocusedElement Organism',currentFocusedElement);
+    console.log('cardElementRef Organism',cardElementRef);
+    if (currentFocusedElement) {
+      const style = outlineElementStyle(currentFocusedElement.current);
+      setStyle(style);
+    }
+  }, [currentFocusedElement]);
+
+  useEffect(() => {
+    const backgroundNumber = getRandomInt(1, 25);
+    setBgPath(`/img/${backgroundNumber}.jpeg`);
+  }, []);
 
   return (
     <div
@@ -31,25 +61,43 @@ const InteractiveCardOrganism = ({
       data-testid="InteractiveCardOrganism"
     >
       <div className={cssClassesCard}>
+        <div
+          className={`card-item__focus ${currentFocusedElement ? `-active` : ``}`}
+          style={style}
+        />
         <div className="card-item__side -front">
           <div className="InteractiveCardContent">
-            <CreditCardBackgroundAtom/>
+            <CreditCardBackgroundAtom bgPath={bgPath} />
             <div className="card-internal-content">
-              <ImageAtom classes={{'chip': true}} src="/img/chip.png" />
-              <ImageAtom classes={{'card-type': true}} src={creditCardTypePath} />
-              <InteractiveCreditCardNumber {...creditCardNumber} />
-              <InteractiveCreditCardHolder {...creditCardHolder} />
-              <InteractiveCreditCardExpiration {...creditCardExpirationDate}/>
+              <ImageAtom classes={{ chip: true }} src="/img/chip.png" />
+              <ImageAtom
+                classes={{ "card-type": true }}
+                src={creditCardTypePath}
+              />
+              <InteractiveCreditCardNumber
+                elementRef={cardElementRef.number}
+                {...creditCardNumber}
+              />
+              <InteractiveCreditCardHolder
+                elementRef={cardElementRef.holder}
+                {...creditCardHolder}
+              />
+              <InteractiveCreditCardExpiration
+                elementRef={cardElementRef.expiration}
+                {...creditCardExpirationDate}
+              />
             </div>
-            
           </div>
         </div>
         <div className="card-item__side -back">
           <div className="InteractiveCardContent">
-            <CreditCardBackgroundAtom/>
+            <CreditCardBackgroundAtom bgPath={bgPath} />
             <div className="card-magnetic-stripe"></div>
             <InteractiveCreditCardCvv {...creditCardCvv} />
-            <ImageAtom classes={{'card-type': true}} src={creditCardTypePath} />
+            <ImageAtom
+              classes={{ "card-type": true }}
+              src={creditCardTypePath}
+            />
           </div>
         </div>
       </div>

@@ -4,14 +4,7 @@ import "./CreditCardBackgroundAtom.scss";
 import { getRandomInt } from "../../../core/helpers/getRandomInt";
 import { ImageAtom } from "../index";
 
-const CreditCardBackgroundAtom = () => {
-  const [bgPath, setBgPath] = useState('/img/1.png')
-  
-  useEffect(() =>{
-    const backgroundNumber = getRandomInt(1,25);
-    setBgPath(`/img/${backgroundNumber}.jpeg`);
-  },[]);
-  
+const CreditCardBackgroundAtom = ({bgPath}) => {
   return (
     <div className="card-item__cover">
       <ImageAtom src={bgPath} class="card-item__bg"/>

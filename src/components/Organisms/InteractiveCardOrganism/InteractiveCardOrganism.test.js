@@ -5,9 +5,9 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 configure({adapter: new Adapter()});
 
-describe('ButtonAtom test', () => {
+describe('InteractiveCardOrganism test', () => {
   test('should render the component', () =>{
-    const wrapper = shallow(<InteractiveCardOrganism/>);
+    const wrapper = shallow(<InteractiveCardOrganism referencesCard={{cardNumber: '', cardHolder: '', cardExpiration: ''}}/>);
     expect(wrapper.find('div').exists()).toBe(true);
   })
 })

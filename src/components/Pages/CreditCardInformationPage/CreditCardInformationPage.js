@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./CreditCardInformationPage.scss";
 import { useFormField } from "../../../core/hooks/useFormField";
 import { initialState } from "./InitialState";
 import { CreditCardInformationTemplate } from "../../Templates";
+import { getCardType } from "../../../core/helpers";
 
 const CreditCardInformationPage = () => {
   const creditCardNumber = useFormField(initialState.creditCardNumber);
@@ -18,6 +19,13 @@ const CreditCardInformationPage = () => {
 
   const [creditCardType, setcreditCardType] = useState("visa");
   const [showBackCard, setShowBackCard] = useState(false)
+
+  useEffect(() =>{
+    const cardType = getCardType(creditCardNumber.value)
+    if(creditCardNumber.value != '' && cardType){
+      setcreditCardType(cardType)
+    }
+  }, [creditCardNumber.value])
   return (
     <section className="CreditCardPage">
       <CreditCardInformationTemplate

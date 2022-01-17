@@ -10,7 +10,7 @@ import {
   CSSTransition
 } from 'react-transition-group';
 
-const InteractiveCreditCardNumber = ({value, label}) => {
+const InteractiveCreditCardNumber = ({value, label, elementRef}) => {
   
   const[characters, setCharacters] = useState(splitString(value));
 
@@ -23,7 +23,7 @@ const InteractiveCreditCardNumber = ({value, label}) => {
   },[value]);
 
   return (
-    <div className="InteractiveCreditCardNumber" data-testid="InteractiveCreditCardNumber">
+    <div className="InteractiveCreditCardNumber" data-testid="InteractiveCreditCardNumber" ref={elementRef} name="number">
       <TransitionGroup
           className="slide-fade-up number-wrapper"
           component="div"
