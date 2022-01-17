@@ -8,6 +8,7 @@ import { getLastTwoCharacters } from './getLastTwoCharacters';
 import { maskCreditCardCvvMask } from './masks/CreditCardCvvMask';
 import { getCardType } from './getCardType';
 import { isValidCreditCardNumber } from './validators/isValidCreditCardNumber';
+import { isValidForm } from './validators/isValidForm';
 export {
   isNotEmptyString,
   getMessage,
@@ -18,5 +19,6 @@ export {
   getLastTwoCharacters,
   maskCreditCardCvvMask,
   getCardType,
-  isValidCreditCardNumber
+  isValidCreditCardNumber,
+  isValidForm
 }

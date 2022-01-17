@@ -21,6 +21,7 @@ const CreditCardInformationTemplate = (props) => {
           setShowBackCard = {props.setShowBackCard}
           setCurrentFocusedElement={setCurrentFocusedElement}
           cardElementRef={referencesCard}
+          formSubmit={props.formSubmit}
         ></CreditCardInformationFormOrganism>
       </div>
     </div>

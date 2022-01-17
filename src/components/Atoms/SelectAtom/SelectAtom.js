@@ -14,12 +14,21 @@ const SelectAtom = ({
   elementRef
 }) => {
   function handleOnFocus(event){
+    console.log(elementRef);
     if(onFocus) onFocus(event);
     if(setCurrentFocusedElement) setCurrentFocusedElement(elementRef)
   }
+
+  function handleOnBlur(event){
+    console.log('');
+    if(onFocus) onBlur(event);
+    if(setCurrentFocusedElement) setCurrentFocusedElement(null)
+  }
+
+
   return (
     <div className="SelectAtom" data-testid="SelectAtom">
-      <select defaultValue={name} onChange={onChange} onFocus={handleOnFocus} onBlur={onBlur} required={required} disabled={disabled}>
+      <select defaultValue={name} onChange={onChange} onFocus={handleOnFocus} onBlur={handleOnBlur} required={required} disabled={disabled}>
         <option value={name} disabled>
           {name}
         </option>

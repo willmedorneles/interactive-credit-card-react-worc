@@ -8,7 +8,7 @@ import {
   CSSTransition
 } from 'react-transition-group';
 
-const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditCardExpirationDateYear}) => {
+const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditCardExpirationDateYear, elementRef}) => {
   const[charactersMonth, setCharactersMonth] = useState(creditCardExpirationDateMonth.value);
   const[charactersYear, setCharactersYear] = useState(creditCardExpirationDateYear.value);
 
@@ -30,9 +30,9 @@ const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditC
   },[creditCardExpirationDateYear.value]);
 
   return (
-    <div className="InteractiveCreditCardExpiration" data-testid="InteractiveCreditCardExpiration" name="expiration">
+    <div className="InteractiveCreditCardExpiration" data-testid="InteractiveCreditCardExpiration" name="expiration" ref={elementRef}>
       <LabelAtom frontLabel={true}>Expiration Date</LabelAtom>
-      <div>
+      <div className="expiration-date">
         <TransitionGroup
             className="slide-fade-up number-wrapper"
             component="div"

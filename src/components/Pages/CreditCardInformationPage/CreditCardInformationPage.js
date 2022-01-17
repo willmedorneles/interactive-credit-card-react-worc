@@ -4,7 +4,7 @@ import "./CreditCardInformationPage.scss";
 import { useFormField } from "../../../core/hooks/useFormField";
 import { initialState } from "./InitialState";
 import { CreditCardInformationTemplate } from "../../Templates";
-import { getCardType } from "../../../core/helpers";
+import { getCardType, isValidForm } from "../../../core/helpers";
 
 const CreditCardInformationPage = () => {
   const creditCardNumber = useFormField(initialState.creditCardNumber);
@@ -18,14 +18,50 @@ const CreditCardInformationPage = () => {
   const creditCardCvv = useFormField(initialState.creditCardCvv);
 
   const [creditCardType, setcreditCardType] = useState("visa");
-  const [showBackCard, setShowBackCard] = useState(false)
+  const [showBackCard, setShowBackCard] = useState(false);
+  const [readyToSubmit, setReadyToSubmit] = useState(false);
 
-  useEffect(() =>{
-    const cardType = getCardType(creditCardNumber.value)
-    if(creditCardNumber.value != '' && cardType){
-      setcreditCardType(cardType)
+  useEffect(() => {
+    if (
+      isValidForm(
+        creditCardNumber,
+        creditCardHolder,
+        creditCardExpirationDateMonth,
+        creditCardExpirationDateYear,
+        creditCardCvv
+      )
+    ) {
+      setReadyToSubmit(true);
+      console.log('foi')
     }
-  }, [creditCardNumber.value])
+  }, [
+    creditCardNumber,
+    creditCardHolder,
+    creditCardExpirationDateMonth,
+    creditCardExpirationDateYear,
+    creditCardCvv,
+  ]);
+
+  function formSubmit(){
+    if(readyToSubmit){
+      alert(
+        creditCardNumber,
+        creditCardHolder,
+        creditCardExpirationDateMonth,
+        creditCardExpirationDateYear,
+        creditCardCvv
+      );
+    }else{
+      alert('Please, fill al the fields with correct information');
+    }
+  }
+
+  useEffect(() => {
+    const cardType = getCardType(creditCardNumber.value);
+    if (creditCardNumber.value != "" && cardType) {
+      setcreditCardType(cardType);
+    }
+  }, [creditCardNumber.value]);
   return (
     <section className="CreditCardPage">
       <CreditCardInformationTemplate
@@ -40,12 +76,13 @@ const CreditCardInformationPage = () => {
           creditCardType,
           creditCardNumber,
           creditCardHolder,
-          creditCardExpirationDate:{
+          creditCardExpirationDate: {
             creditCardExpirationDateMonth,
             creditCardExpirationDateYear,
           },
-          creditCardCvv
+          creditCardCvv,
         }}
+        formSubmit={formSubmit}
         showBackCard={showBackCard}
         setShowBackCard={setShowBackCard}
       ></CreditCardInformationTemplate>

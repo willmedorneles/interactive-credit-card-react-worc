@@ -15,6 +15,7 @@ const CreditCardInformationFormOrganism = ({
   formSubmit = () => {},
   setShowBackCard
 }) => {
+  console.log(creditCardNumber);
   console.log('CreditCardInformationFormOrganism',setCurrentFocusedElement);
   return (
     <div
@@ -40,7 +41,7 @@ const CreditCardInformationFormOrganism = ({
       <div className="cardCvvWrapper">
         <InputGroupMolecule onFocus={() => {setShowBackCard(true)}} onBlur={() => {setShowBackCard(false)}} input={creditCardCvv}></InputGroupMolecule>
       </div>
-      <ButtonAtom onClick={formSubmit}>Submit</ButtonAtom>
+      <ButtonAtom disabled={true} onClick={formSubmit}>Submit</ButtonAtom>
     </CardAtom>
       
     </div>

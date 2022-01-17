@@ -1,6 +1,11 @@
 .InteractiveCreditCardHolder {
+  padding: 5px 10px;
+  width: calc(50% - 80px);
   p {
     margin: 0;
+  }
+  .holder-name{
+    margin-top: 10px;
   }
   .slide-fade-right-enter {
     opacity: 0;

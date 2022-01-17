@@ -1,7 +1,13 @@
 .InteractiveCreditCardExpiration {
   color: #fff;
+  padding: 5px 10px;
+  width: calc(50% - 80px);
   p {
     margin: 0;
+  }
+  .expiration-date{
+    margin-top: 10px;
+    
   }
   .slide-fade-up{
     display: inline-block;
