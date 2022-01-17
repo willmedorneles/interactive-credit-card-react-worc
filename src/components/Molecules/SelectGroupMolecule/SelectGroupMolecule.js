@@ -5,11 +5,11 @@ import {SelectAtom, LabelAtom} from '../../Atoms';
 
 const SelectGroupMolecule = (props) => (
   <div className="SelectGroupMolecule" data-testid="SelectGroupMolecule">
-    <LabelAtom>{props.label}</LabelAtom>
-    <div>
+    <LabelAtom frontLabel={true}>{props.label}</LabelAtom>
+    <div className='select-wrapper'>
       <SelectAtom {...props.creditCardExpirationDateMonth}></SelectAtom>
     </div>
-    <div>
+    <div className='select-wrapper'>
       <SelectAtom {...props.creditCardExpirationDateYear}></SelectAtom>
     </div>
   </div>

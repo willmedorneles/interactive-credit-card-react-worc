@@ -6,13 +6,16 @@ import { CreditCardInformationFormOrganism, InteractiveCardOrganism } from '../.
 const CreditCardInformationTemplate = (props) => {
   return (
     <div className="CreditCardInformationTemplate" data-testid="CreditCardInformationTemplate">
-      <InteractiveCardOrganism
-        {...props.creditCardInformation}
-      ></InteractiveCardOrganism>
-      <CreditCardInformationFormOrganism
-        {...props.fields}
-      ></CreditCardInformationFormOrganism>
+      <div className='template-content'>
+        <InteractiveCardOrganism
+          {...props.creditCardInformation}
+        ></InteractiveCardOrganism>
+        <CreditCardInformationFormOrganism
+          {...props.fields}
+        ></CreditCardInformationFormOrganism>
+      </div>
     </div>
+
   );
 }
 

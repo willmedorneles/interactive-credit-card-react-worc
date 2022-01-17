@@ -3,5 +3,42 @@
   .atom-card{
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    .cardNumberWrapper{
+      width: 100%;
+      margin-bottom: 20px;
+      input{
+        width: 100%;
+      }
+    }
+    .cardHolderWrapper{
+      width: 100%;
+      margin-bottom: 20px;
+      input{
+        width: 100%;
+      }
+    }
+    .cardExpirationWrapper{
+      width: 55%;
+      margin-bottom: 20px;
+    }
+    .cardCvvWrapper{
+      width: 45%;
+      margin-bottom: 20px;
+      display: flex;
+      input, .InputAtom, .InputGroupMolecule{
+        max-width: 150px;
+      }
+      .InputGroupMolecule{
+        margin-left: auto;
+      }
+    }
+    Label{
+      font-weight: 500;
+      color: #1a3b5d;
+      font-size: 14px;
+      opacity: 1;
+    }
   }
 }

@@ -19,12 +19,14 @@ const InteractiveCreditCardNumber = ({value, label}) => {
 
   return (
     <div className="InteractiveCreditCardNumber" data-testid="InteractiveCreditCardNumber">
-      <LabelAtom>{label}</LabelAtom>
-      {
-        characters.map((characterValue, index) => {
-          return <InteractiveCreditCardCharacter key={index}>{characterValue}</InteractiveCreditCardCharacter>
-        })
-      }
+      <div class="number-wrapper">
+        {
+          characters.map((characterValue, index) => {
+            return <InteractiveCreditCardCharacter key={index}>{characterValue}</InteractiveCreditCardCharacter>
+          })
+        }
+      </div>
+      
     </div>
   );
 }

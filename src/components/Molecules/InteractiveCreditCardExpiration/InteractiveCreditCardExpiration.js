@@ -27,10 +27,13 @@ const InteractiveCreditCardExpiration = ({creditCardExpirationDateMonth, creditC
 
   return (
     <div className="InteractiveCreditCardExpiration" data-testid="InteractiveCreditCardExpiration">
-      <LabelAtom>Expiration Date</LabelAtom>
-      <InteractiveCreditCardCharacter>{charactersMonth}</InteractiveCreditCardCharacter>
-      /
-      <InteractiveCreditCardCharacter>{charactersYear}</InteractiveCreditCardCharacter>
+      <LabelAtom frontLabel={true}>Expiration Date</LabelAtom>
+      <div className='expiration-date'>
+        <InteractiveCreditCardCharacter>{charactersMonth}</InteractiveCreditCardCharacter>
+        /
+        <InteractiveCreditCardCharacter>{charactersYear}</InteractiveCreditCardCharacter>
+      </div>
+
     </div>
   );
 }

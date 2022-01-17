@@ -2,12 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 import './ImageAtom.scss';
 
-function ImageAtom({ src, alt }) {
+function ImageAtom({ src, alt, classes = {}}) {
 
   if( !src ) return '';
 
   const cssClasses = classNames({
     'atom-image': true,
+    ...classes
   });
 
   return (

@@ -1,5 +1,25 @@
 .InteractiveCardOrganism {
   display: flex;
+  .card-internal-content{
+    padding: 25px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    img:nth-child(2){
+      margin-left: auto;
+    }
+    .InteractiveCreditCardNumber{
+      width: 100%;
+      padding: 45px 0
+    }
+    .InteractiveCreditCardExpiration{
+      margin-left: auto;
+    }
+  }
+  .InteractiveCardContent{
+    .image-chip{
+      width: 60px;
+    }
+  }
   .card-item {
     max-width: 450px;
     height: 270px;

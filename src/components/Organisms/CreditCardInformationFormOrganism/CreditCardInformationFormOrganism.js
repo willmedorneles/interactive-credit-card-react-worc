@@ -17,14 +17,22 @@ const CreditCardInformationFormOrganism = ({
     data-testid="CreditCardInformationFormOrganism"
   >
   <CardAtom>
-    <InputGroupMolecule input={creditCardNumber}></InputGroupMolecule>
-    <InputGroupMolecule input={creditCardHolder}></InputGroupMolecule>
-    <SelectGroupMolecule
-      label='Expiration Date'
-      creditCardExpirationDateMonth={creditCardExpirationDateMonth}
-      creditCardExpirationDateYear={creditCardExpirationDateYear}
-    ></SelectGroupMolecule>
-    <InputGroupMolecule input={creditCardCvv}></InputGroupMolecule>
+    <div className="cardNumberWrapper">
+      <InputGroupMolecule input={creditCardNumber}></InputGroupMolecule>
+    </div>
+    <div className="cardHolderWrapper">
+      <InputGroupMolecule input={creditCardHolder}></InputGroupMolecule>
+    </div>
+    <div className="cardExpirationWrapper">
+      <SelectGroupMolecule
+        label='Expiration Date'
+        creditCardExpirationDateMonth={creditCardExpirationDateMonth}
+        creditCardExpirationDateYear={creditCardExpirationDateYear}
+      ></SelectGroupMolecule>
+    </div>
+    <div className="cardCvvWrapper">
+      <InputGroupMolecule input={creditCardCvv}></InputGroupMolecule>
+    </div>
     <ButtonAtom onClick={formSubmit}>Submit</ButtonAtom>
   </CardAtom>
     

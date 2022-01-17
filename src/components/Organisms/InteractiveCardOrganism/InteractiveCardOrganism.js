@@ -25,18 +25,21 @@ const InteractiveCardOrganism = ({
       <div className="card-item">
         <div className="card-item__side -front">
           <div className="InteractiveCardContent">
-            <ImageAtom src="/img/chip.png" />
-            <ImageAtom src={creditCardTypePath} />
             <CreditCardBackgroundAtom/>
-            <InteractiveCreditCardNumber {...creditCardNumber} />
-            <InteractiveCreditCardHolder {...creditCardHolder} />
-            <InteractiveCreditCardExpiration {...creditCardExpirationDate}/>
+            <div className="card-internal-content">
+              <ImageAtom classes={{'chip': true}} src="/img/chip.png" />
+              <ImageAtom classes={{'card-type': true}} src={creditCardTypePath} />
+              <InteractiveCreditCardNumber {...creditCardNumber} />
+              <InteractiveCreditCardHolder {...creditCardHolder} />
+              <InteractiveCreditCardExpiration {...creditCardExpirationDate}/>
+            </div>
+            
           </div>
         </div>
         <div className="card-item__side -back">
           <div className="InteractiveCardContent">
             <InteractiveCreditCardCvv {...creditCardCvv} />
-            <ImageAtom src={creditCardTypePath} />
+            <ImageAtom classes={{'card-type': true}} src={creditCardTypePath} />
           </div>
         </div>
       </div>

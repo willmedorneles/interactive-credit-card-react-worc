@@ -1,1 +1,17 @@
-.SelectAtom {}
+.SelectAtom {
+  select{
+    border: 1px solid #ced6e0;
+    transition: all 0.3s ease-in-out;
+    font-size: 18px;
+    padding: 5px 15px;
+    background: none;
+    height: 50px;
+    border-radius: 5px;
+    option:disabled{
+      
+    }
+  }
+  select:nth-child(1){
+    margin-right: 15px;
+  }
+}

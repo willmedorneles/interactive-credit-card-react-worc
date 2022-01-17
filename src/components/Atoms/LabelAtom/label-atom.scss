@@ -1,8 +1,11 @@
 
 .atom-label{
-  font-size: 1.2rem;
-  font-weight: normal;
-  color: #555;
-  display: block;
-  padding: 5px 0 0;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  &.front-label{
+    opacity: 0.7;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
 }

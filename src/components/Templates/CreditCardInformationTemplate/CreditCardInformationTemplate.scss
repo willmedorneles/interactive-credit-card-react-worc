@@ -1,1 +1,11 @@
-.CreditCardInformationTemplate {}
+.CreditCardInformationTemplate {
+  display: flex;
+  min-height: 100vh;
+  .template-content{
+    align-self: center;
+    width: 100%;
+  }
+  .InteractiveCardOrganism{
+    margin-bottom: -130px;
+  }
+}

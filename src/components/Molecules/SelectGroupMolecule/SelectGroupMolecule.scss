@@ -1,1 +1,14 @@
-.SelectGroupMolecule {}
+.SelectGroupMolecule {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  .select-wrapper{
+    width: 50%;
+    select{
+      width: calc(100% - 15px);
+    }
+  }
+  label{
+    width: 100%;
+  }
+}
