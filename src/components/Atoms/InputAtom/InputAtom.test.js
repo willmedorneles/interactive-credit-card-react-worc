@@ -30,7 +30,7 @@ describe('InputAtom test', () => {
 
   test('must call onBlur function in handleBlur', () => {
     const onBlur = jest.fn();
-    inputMock.onBlur = onBlur;
+    inputMock.onBlurAction = onBlur;
     const wrapper = shallow(<InputAtom {...inputMock} />);
     wrapper.find('input').simulate('blur');
     expect(onBlur).toHaveBeenCalled();

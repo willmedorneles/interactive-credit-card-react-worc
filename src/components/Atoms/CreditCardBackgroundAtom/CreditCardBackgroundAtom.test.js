@@ -10,9 +10,4 @@ describe('CreditCardBackgroundAtom test', () => {
     const wrapper = shallow(<CreditCardBackgroundAtom>Test</CreditCardBackgroundAtom>);
     expect(wrapper.find('div').exists()).toBe(true);
   })
-
-  test('Must render children', () =>{
-    const wrapper = shallow(<CreditCardBackgroundAtom><input></input></CreditCardBackgroundAtom>);
-    expect(wrapper.find('input').exists()).toBe(true);
-  })
 })

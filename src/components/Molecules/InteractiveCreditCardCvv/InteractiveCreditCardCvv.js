@@ -4,6 +4,11 @@ import './InteractiveCreditCardCvv.scss';
 import { splitString } from '../../../core/helpers';
 import { LabelAtom, InteractiveCreditCardCharacter } from '../../Atoms';
 import { interactiveCreditCardCvvMask } from '../../../core/helpers/masks/InteractiveCreditCardCvvMask';
+import {
+  TransitionGroup,
+  CSSTransition
+} from 'react-transition-group';
+
 const InteractiveCreditCardCvv = ({value, label}) => {
   const[characters, setCharacters] = useState(splitString(value));
 
@@ -14,13 +19,24 @@ const InteractiveCreditCardCvv = ({value, label}) => {
   return (
     <div className="InteractiveCreditCardCvv" data-testid="InteractiveCreditCardNumber">
       <LabelAtom>{label}</LabelAtom>
-      <div className='cvv-stripe'>
+      <TransitionGroup
+            className="zoom-in-out cvv-stripe"
+            component="div"
+        >
         {
           characters.map((characterValue, index) => {
-            return <InteractiveCreditCardCharacter key={index}>{characterValue}</InteractiveCreditCardCharacter>
+            return (
+              <CSSTransition
+              classNames="zoom-in-out"
+              timeout={250}
+              key={index}
+              >
+                <InteractiveCreditCardCharacter >{characterValue}</InteractiveCreditCardCharacter>
+              </CSSTransition>
+            );
           })
         }
-      </div>
+        </TransitionGroup>
     </div>
   );
 }
