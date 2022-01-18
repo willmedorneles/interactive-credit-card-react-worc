@@ -34,9 +34,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 To run the integration tests you need to run the `npm start` command at the same time.
 
-This command will run cypress.
+This command will run cypress on Linux OS's;
 
-If you are having trouble running cypress take a look at the Installing Cypress [page](https://docs.cypress.io/guides/getting-started/installing-cypress#System-requirements).
+If you are having trouble running cypress take a look at the Installing Cypress [page](https://docs.cypress.io/guides/getting-started/installing-cypress#System-requirements). And how to run cypress in your OS.
 
 See the section about [cypress](https://docs.cypress.io/) for more information.
 
