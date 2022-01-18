@@ -458,3 +458,27 @@
     }
   }
 }
+
+@media screen and (max-width: 480px) {
+  .chip{
+    width: 30px !important;
+    height: 24px !important;
+  }
+  .card-type{
+    margin: 0 !important;
+    height: 33px !important;
+  }
+  .InteractiveCreditCardHolder{
+    label{
+      display: none;
+    }
+  }
+  .InteractiveCreditCardExpiration{
+    label{
+      display: none;
+    }
+    .expiration-date{
+      min-width: 80px;
+    }
+  }
+}
