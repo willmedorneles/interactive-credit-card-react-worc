@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "jest --verbose --collect-coverage ./src",
     "test:watch": "jest ./src --watch",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress": "export NODE_OPTIONS=--openssl-legacy-provider; $(npm bin)/cypress open"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -47,10 +48,12 @@
   "devDependencies": {
     "@babel/preset-env": "^7.16.8",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "cypress": "^9.2.1",
     "enzyme": "^3.11.0",
     "jest": "^27.4.7",
     "jsdom": "19.0.0",
     "jsdom-global": "3.0.2",
+    "mini-css-extract-plugin": "^2.5.2",
     "react-test-renderer": "^17.0.2",
     "sass": "^1.48.0",
     "vanilla-masker": "^1.2.0"

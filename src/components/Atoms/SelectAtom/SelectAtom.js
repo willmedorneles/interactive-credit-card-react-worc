@@ -11,38 +11,45 @@ const SelectAtom = ({
   options = [],
   onFocus,
   setCurrentFocusedElement,
-  elementRef
+  elementRef,
 }) => {
-  function handleOnFocus(event){
+  function handleOnFocus(event) {
     console.log(elementRef);
-    if(onFocus) onFocus(event);
-    if(setCurrentFocusedElement) setCurrentFocusedElement(elementRef)
+    if (onFocus) onFocus(event);
+    if (setCurrentFocusedElement) setCurrentFocusedElement(elementRef);
   }
 
-  function handleOnBlur(event){
-    console.log('');
-    if(onFocus) onBlur(event);
-    if(setCurrentFocusedElement) setCurrentFocusedElement(null)
+  function handleOnBlur(event) {
+    console.log("");
+    if (onFocus) onBlur(event);
+    if (setCurrentFocusedElement) setCurrentFocusedElement(null);
   }
-
 
   return (
     <div className="SelectAtom" data-testid="SelectAtom">
-      <select defaultValue={name} onChange={onChange} onFocus={handleOnFocus} onBlur={handleOnBlur} required={required} disabled={disabled}>
+      <select
+        defaultValue={name}
+        onChange={onChange}
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
+        required={required}
+        disabled={disabled}
+        id={name}
+      >
         <option value={name} disabled>
           {name}
         </option>
-        {
-          options.map((value, index) => {
-            return <option key={index} value={value}>
+        {options.map((value, index) => {
+          return (
+            <option key={index} value={value}>
               {value}
             </option>
-          })
-        }
+          );
+        })}
       </select>
     </div>
   );
-}
+};
 
 SelectAtom.propTypes = {};
 

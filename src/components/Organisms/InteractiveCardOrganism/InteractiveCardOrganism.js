@@ -9,7 +9,14 @@ import {
   InteractiveCreditCardExpiration,
   InteractiveCreditCardCvv,
 } from "../../Molecules";
+
+import {
+  TransitionGroup,
+  CSSTransition
+} from 'react-transition-group';
+
 import classNames from "classnames";
+
 
 const InteractiveCardOrganism = ({
   creditCardType,
@@ -42,7 +49,6 @@ const InteractiveCardOrganism = ({
   };
 
   useEffect(() => {
-
     if (currentFocusedElement) {
       const style = outlineElementStyle(currentFocusedElement.current);
       setStyle(style);
@@ -61,7 +67,9 @@ const InteractiveCardOrganism = ({
     >
       <div className={cssClassesCard}>
         <div
-          className={`card-item__focus ${currentFocusedElement ? `-active` : ``}`}
+          className={`card-item__focus ${
+            currentFocusedElement ? `-active` : ``
+          }`}
           style={style}
         />
         <div className="card-item__side -front">
@@ -69,10 +77,20 @@ const InteractiveCardOrganism = ({
             <CreditCardBackgroundAtom bgPath={bgPath} />
             <div className="card-internal-content">
               <ImageAtom classes={{ chip: true }} src="/img/chip.png" />
-              <ImageAtom
-                classes={{ "card-type": true }}
-                src={creditCardTypePath}
-              />
+              <TransitionGroup
+                className="slide-fade-up card-type-wrapper"
+                component="div"
+              >
+                <CSSTransition
+                  classNames="slide-fade-up"
+                  timeout={250}
+                >
+                  <ImageAtom
+                    classes={{ "card-type": true }}
+                    src={creditCardTypePath}
+                  />
+                </CSSTransition>
+              </TransitionGroup>
               <InteractiveCreditCardNumber
                 elementRef={cardElementRef.number}
                 {...creditCardNumber}
