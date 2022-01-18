@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./CreditCardInformationFormOrganism.scss";
 import { InputGroupMolecule, SelectGroupMolecule } from "../../Molecules";
-import { CardAtom, ButtonAtom } from '../../Atoms';
+import { CardAtom } from '../../Atoms';
 
 const CreditCardInformationFormOrganism = ({
   creditCardNumber,
@@ -13,10 +13,10 @@ const CreditCardInformationFormOrganism = ({
   cardElementRef,
   setCurrentFocusedElement,
   formSubmit = () => {},
+  enableButton,
   setShowBackCard
 }) => {
-  console.log(creditCardNumber);
-  console.log('CreditCardInformationFormOrganism',setCurrentFocusedElement);
+
   return (
     <div
       className="CreditCardInformationFormOrganism"
@@ -39,9 +39,9 @@ const CreditCardInformationFormOrganism = ({
         ></SelectGroupMolecule>
       </div>
       <div className="cardCvvWrapper">
-        <InputGroupMolecule onFocus={() => {setShowBackCard(true)}} onBlur={() => {setShowBackCard(false)}} input={creditCardCvv}></InputGroupMolecule>
+        <InputGroupMolecule onFocus={() => {setShowBackCard(true)}} onFocusOut={() => {setShowBackCard(false)}} input={creditCardCvv}></InputGroupMolecule>
       </div>
-      <ButtonAtom disabled={true} onClick={formSubmit}>Submit</ButtonAtom>
+      <button disabled={!enableButton} onClick={formSubmit}>Submit</button>
     </CardAtom>
       
     </div>

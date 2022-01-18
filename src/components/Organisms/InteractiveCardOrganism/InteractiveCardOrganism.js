@@ -42,8 +42,7 @@ const InteractiveCardOrganism = ({
   };
 
   useEffect(() => {
-    console.log('currentFocusedElement Organism',currentFocusedElement);
-    console.log('cardElementRef Organism',cardElementRef);
+
     if (currentFocusedElement) {
       const style = outlineElementStyle(currentFocusedElement.current);
       setStyle(style);

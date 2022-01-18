@@ -6,4 +6,19 @@
     transition: all 0.3s ease-in-out;
     border-radius: 5px;
   }
+  input:required{
+    box-shadow: none;
+    -moz-mox-shadow:none;
+    outline:none;
+  }
+
+  input:active, input:focus{
+    border: 1px solid #0055d4;
+  }
+  .atom-input-valid{
+    border: 1px solid rgb(82, 255, 47);
+  }
+  .atom-input-invalid{
+    border: 1px solid red;
+  }
 }

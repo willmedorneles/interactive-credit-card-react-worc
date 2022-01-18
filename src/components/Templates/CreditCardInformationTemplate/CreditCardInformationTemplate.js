@@ -22,6 +22,7 @@ const CreditCardInformationTemplate = (props) => {
           setCurrentFocusedElement={setCurrentFocusedElement}
           cardElementRef={referencesCard}
           formSubmit={props.formSubmit}
+          enableButton={props.readyToSubmit}
         ></CreditCardInformationFormOrganism>
       </div>
     </div>

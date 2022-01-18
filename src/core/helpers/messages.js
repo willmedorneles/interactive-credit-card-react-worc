@@ -1,9 +1,10 @@
 const MESSAGES = {
   DEFAULT: 'Este campo é obrigatório',
-  CREDITCARDNUMBER: 'Número de cartão inválido',
-  CREDITCARDNAME: 'Nome completo do titular do cartão inválido',
+  CARDNUMBER: 'Número de cartão inválido',
+  CARDHOLDER: 'Nome completo do titular do cartão inválido',
   CREDITCARDCCV: 'Codigo de verificação incorreto',
-  CREDITCARDEXPIRATIONDATE: 'Data inválida'
+  MONTH: 'Data inválida',
+  YEAR: 'Data inválida',
 }
 
 function getMessage(name = 'DEFAULT') {

@@ -13,7 +13,7 @@ describe('getMessage componetent test', () => {
   });
 
   test('must return username mesage', () => {
-    const message = getMessage('creditcardnumber');
+    const message = getMessage('cardnumber');
     expect(message).toEqual('Número de cartão inválido');
   });
 

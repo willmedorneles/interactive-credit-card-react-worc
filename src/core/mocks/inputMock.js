@@ -8,7 +8,7 @@ const mockInput = {
   required: true,
   options: {},
   onChange: () => {},
-  onBlurAction: () => {},
+  onBlur: () => {},
   reset: () => {},
   setState: () => {},
   validate: () => true

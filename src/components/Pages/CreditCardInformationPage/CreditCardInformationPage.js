@@ -32,7 +32,6 @@ const CreditCardInformationPage = () => {
       )
     ) {
       setReadyToSubmit(true);
-      console.log('foi')
     }
   }, [
     creditCardNumber,
@@ -42,23 +41,28 @@ const CreditCardInformationPage = () => {
     creditCardCvv,
   ]);
 
-  function formSubmit(){
-    if(readyToSubmit){
+  function formSubmit() {
+    if (readyToSubmit) {
       alert(
-        creditCardNumber,
-        creditCardHolder,
-        creditCardExpirationDateMonth,
-        creditCardExpirationDateYear,
-        creditCardCvv
+        JSON.stringify({
+          creditCardInformation: {
+            type: creditCardType,
+            number: creditCardNumber.value,
+            holder: creditCardHolder.value,
+            expirationMonth: creditCardExpirationDateMonth.value,
+            expirationYear: creditCardExpirationDateYear.value,
+            cvv: creditCardCvv.value,
+          },
+        })
       );
-    }else{
-      alert('Please, fill al the fields with correct information');
+    } else {
+      alert("Please, fill al the fields with correct information");
     }
   }
 
   useEffect(() => {
     const cardType = getCardType(creditCardNumber.value);
-    if (creditCardNumber.value != "" && cardType) {
+    if (creditCardNumber.value !== "" && cardType) {
       setcreditCardType(cardType);
     }
   }, [creditCardNumber.value]);
@@ -85,6 +89,7 @@ const CreditCardInformationPage = () => {
         formSubmit={formSubmit}
         showBackCard={showBackCard}
         setShowBackCard={setShowBackCard}
+        readyToSubmit={readyToSubmit}
       ></CreditCardInformationTemplate>
     </section>
   );

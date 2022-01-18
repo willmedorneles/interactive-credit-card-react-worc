@@ -27,8 +27,8 @@ const useFormField = initialValue => {
    * @param {string} value 
    */
   const validate = (value) => {
-    let error = !isNotEmptyString(value) ? getMessage() : '';
 
+    let error = !isNotEmptyString(value) ? getMessage() : '';
     if(formField.validator && !formField.validator(value)) {
       error = getMessage(formField.name);
     }
