@@ -3,6 +3,14 @@
   width: calc(100% - 80px);
   margin-top: 25px;
   margin-bottom: 25px;
+
+  @media screen and (max-width: 481px) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    p {
+      font-size: 15px !important;
+    }
+  }
   p {
     font-size: 27px;
     margin: 0;

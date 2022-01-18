@@ -1,6 +1,13 @@
 .InteractiveCreditCardHolder {
   padding: 5px 10px;
   width: calc(50% - 80px);
+
+  @media screen and (max-width: 481px) {
+    width: auto;
+    p {
+      font-size: 12px !important; 
+    }
+  }
   p {
     margin: 0;
   }
